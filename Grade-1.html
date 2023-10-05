@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Grade Calculator</title>
+    <script>
+        function calculateGrade() {
+            const historyMarks = parseFloat(document.getElementById("history").value);
+            const biologyMarks = parseFloat(document.getElementById("biology").value);
+            const chemistryMarks = parseFloat(document.getElementById("chemistry").value);
+            const mathMarks = parseFloat(document.getElementById("math").value);
+            const physicsMarks = parseFloat(document.getElementById("physics").value);
+            const englishMarks = parseFloat(document.getElementById("english").value);
+            const khmerMarks = parseFloat(document.getElementById("khmer").value);
+
+            const historyFullMark = 50;
+            const biologyFullMark = 75;
+            const chemistryFullMark = 75;
+            const mathFullMark = 125;
+            const physicsFullMark = 75;
+            const englishFullMark = 50;
+            const khmerFullMark = 75;
+
+            const historyGrade = (historyMarks / historyFullMark) * 100;
+            const biologyGrade = (biologyMarks / biologyFullMark) * 100;
+            const chemistryGrade = (chemistryMarks / chemistryFullMark) * 100;
+            const mathGrade = (mathMarks / mathFullMark) * 100;
+            const physicsGrade = (physicsMarks / physicsFullMark) * 100;
+            const englishGrade = (englishMarks / englishFullMark) * 100;
+            const khmerGrade = (khmerMarks / khmerFullMark) * 100;
+
+            const averageGrade = (historyGrade + biologyGrade + chemistryGrade + mathGrade + physicsGrade + englishGrade + khmerGrade) / 7;
+
+            let grade;
+
+            if (averageGrade >= 90) {
+                grade = "A";
+            } else if (averageGrade >= 80) {
+                grade = "B";
+            } else if (averageGrade >= 70) {
+                grade = "C";
+            } else if (averageGrade >= 60) {
+                grade = "D";
+            } else if (averageGrade >= 50) {
+                grade = "E";
+            } else {
+                grade = "F";
+            }
+
+            document.getElementById("result").innerHTML = `Average Grade: ${averageGrade.toFixed(2)}%<br>Grade: ${grade}`;
+        }
+    </script>
+</head>
+<body>
+    <h1>Grade Calculator</h1>
+    <label for="history">History:</label>
+    <input type="number" id="history" min="0" max="50"><br>
+
+    <label for="biology">Biology:</label>
+    <input type="number" id="biology" min="0" max="75"><br>
+
+    <label for="chemistry">Chemistry:</label>
+    <input type="number" id="chemistry" min="0" max="75"><br>
+
+    <label for="math">Math:</label>
+    <input type="number" id="math" min="0" max="125"><br>
+
+    <label for="physics">Physics:</label>
+    <input type="number" id="physics" min="0" max="75"><br>
+
+    <label for="english">English:</label>
+    <input type="number" id="english" min="0" max="50"><br>
+
+    <label for="khmer">Khmer:</label>
+    <input type="number" id="khmer" min="0" max="75"><br>
+
+    <button onclick="calculateGrade()">Calculate</button>
+
+    <p id="result"></p>
+</body>
+</html>
